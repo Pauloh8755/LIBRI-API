@@ -1,15 +1,18 @@
 "use strict";
-import Express from "express";
-import User from "./models/User.js";
-
+import express from "express";
+import userController from "./controller/userController.js";
 /**
  * instantiating express aplication
  */
-const app = Express();
+const app = express();
 
-app.get("/", (req,res)=>{
-    res.json({string: "olá"});
-});
+/**
+ * express config
+ */
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
+
+app.use("/", userController);
 
 /**
  * creating self contained server -> app.listen(door: 3000, callback: function)

@@ -37,6 +37,6 @@ const User = connection.define("tbl_user", {
     }
 });
 
-User.sync({force: true});
+User.sync();
 
 export default User;
